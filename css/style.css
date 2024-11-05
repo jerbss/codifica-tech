@@ -158,6 +158,22 @@ button:hover {
     color: white; /* Cor do texto */
 }
 
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 0 5px;
+    vertical-align: middle;
+  }
+  
+  .swiper-pagination-bullet-active {
+    background-color: #fff; /* cor branca */
+    border: 2px solid #007BFF; /* cor azul */
+    width: 14px; /* aumenta o tamanho do círculo ativo */
+    height: 14px; /* aumenta o tamanho do círculo ativo */
+}
+  
 .swiper-container {
     position: relative; /* Certifique-se de que a posição do contêiner seja relativa */
 }
