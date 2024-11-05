@@ -7,7 +7,7 @@ Este projeto consiste na criação de uma landing page moderna e interativa, des
 
 **Objetivo**: Construir uma página que combine design atrativo com interatividade, utilizando:
 - **HTML, CSS, JavaScript** para estrutura e interatividade.
-- **Bibliotecas externas** para sliders e animações.
+- **Bibliotecas Externas** para sliders e animações.
 - **APIs** para exibir conteúdos dinâmicos em seções específicas, como "Serviços" e "Testemunhos".
 
 

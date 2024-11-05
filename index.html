@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodificaTech</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.css"> <!-- Link para o CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;700&display=swap" rel="stylesheet"> <!-- Fonte Exo -->
+    <link rel="icon" href="img/icon.svg" type="image/x-icon"> <!-- Ícone da página -->
+</head>
+<body>
+    <header>
+        <img src="img/logo.png" alt="Logotipo da CodificaTech" class="logo"> <!-- Logotipo -->
+        <h1>Transformando Ideias em Soluções Digitais</h1> <!-- Novo título mais profissional -->
+        <nav>
+            <ul>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="servicos">
+            <h2>Serviços</h2>
+            <p>A CodificaTech oferece uma variedade de soluções digitais para atender às suas necessidades, incluindo desenvolvimento web, design de interface e consultoria em tecnologia.</p>
+            <ul>
+                <li>Desenvolvimento de Websites</li>
+                <li>Design de UX/UI</li>
+                <li>Consultoria em TI</li>
+            </ul>
+            <button onclick="document.getElementById('contato').scrollIntoView();">Solicite um Orçamento</button>
+        </section>        
+        
+        <section id="sobre">
+            <h2>Sobre Nós</h2>
+            <p>Na CodificaTech, estamos comprometidos em transformar suas ideias em soluções digitais eficazes. Nossa equipe é composta por profissionais experientes que buscam inovação e excelência.</p>
+        </section>
+
+        <section id="contato">
+            <h2>Contato</h2>
+            <p>Entre em contato conosco para discutir suas necessidades de projeto. Preencha o formulário abaixo.</p>
+            <form id="contact-form" method="post" action="javascript:void(0);"> <!-- Evita que a página seja recarregada -->
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+                
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+                
+                <button type="submit">Enviar</button>
+            </form>
+        </section> 
+
+        <section id="slider">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">Slide 1</div>
+                    <div class="swiper-slide">Slide 2</div>
+                    <div class="swiper-slide">Slide 3</div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>         
+        
+        <section id="testemunhos">
+            <h2>O que nossos clientes dizem</h2>
+            <div id="testemunhos-container">
+                <p>"A CodificaTech transformou meu negócio!" - Cliente A</p>
+                <p>"Serviço excepcional e equipe incrível!" - Cliente B</p>
+            </div>
+        </section>
+        
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CodificaTech. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+</body>
+</html>
