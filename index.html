@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;700&display=swap" rel="stylesheet"> <!-- Fonte Exo -->
     <link rel="icon" href="img/icon.svg" type="image/x-icon"> <!-- Ícone da página -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -25,68 +27,118 @@
     </header>
 
     <main>
-        <section id="servicos">
-            <h2>Serviços</h2>
-            <p>A CodificaTech oferece uma variedade de soluções digitais para atender às suas necessidades, incluindo desenvolvimento web, design de interface e consultoria em tecnologia.</p>
-            <ul>
-                <li>Desenvolvimento de Websites</li>
-                <li>Design de UX/UI</li>
-                <li>Consultoria em TI</li>
-            </ul>
-            <button onclick="document.getElementById('contato').scrollIntoView();">Solicite um Orçamento</button>
-        </section>        
-        
-        <section id="sobre">
-            <h2>Sobre Nós</h2>
-            <p>Na CodificaTech, estamos comprometidos em transformar suas ideias em soluções digitais eficazes. Nossa equipe é composta por profissionais experientes que buscam inovação e excelência.</p>
-        </section>
-
-        <section id="contato">
-            <h2>Contato</h2>
-            <p>Entre em contato conosco para discutir suas necessidades de projeto. Preencha o formulário abaixo.</p>
-            <form id="contact-form" method="post" action="javascript:void(0);"> <!-- Evita que a página seja recarregada -->
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" required>
-                
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="mensagem">Mensagem:</label>
-                <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
-                
-                <button type="submit">Enviar</button>
-            </form>
-        </section> 
-
         <section id="slider">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">Slide 1</div>
-                    <div class="swiper-slide">Slide 2</div>
-                    <div class="swiper-slide">Slide 3</div>
+                    <div class="swiper-slide">
+                        <img src="img/img1.jpg" alt="Descrição da Imagem 1">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/img2.jpg" alt="Descrição da Imagem 2">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/img3.jpg" alt="Descrição da Imagem 3">
+                    </div>
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-pagination"></div>
             </div>
-        </section>         
+        </section>  
+
+        <section id="servicos">
+            <h2>Serviços</h2>
+            <p>A CodificaTech oferece uma variedade de soluções digitais para atender às suas necessidades, incluindo desenvolvimento web, design de interface e consultoria em tecnologia.</p>
+            <div class="servicos-container">
+                <div class="servico-card">
+                    <i class="fas fa-code"></i> <!-- Ícone para Desenvolvimento de Websites -->
+                    <h3>Desenvolvimento de Websites</h3>
+                    <p>Criação de sites responsivos e otimizados para suas necessidades.</p>
+                </div>
+                <div class="servico-card">
+                    <i class="fas fa-paint-brush"></i> <!-- Ícone para Design de UX/UI -->
+                    <h3>Design de UX/UI</h3>
+                    <p>Desenvolvimento de interfaces intuitivas e centradas no usuário.</p>
+                </div>
+                <div class="servico-card">
+                    <i class="fas fa-comments"></i> <!-- Ícone para Consultoria em TI -->
+                    <h3>Consultoria em TI</h3>
+                    <p>Apoio especializado para otimizar seus sistemas e processos.</p>
+                </div>
+            </div>
+            <button class="botao" onclick="document.getElementById('contato').scrollIntoView();">Solicite um Orçamento</button>
+        </section>
+        <section id="sobre">
+            <h2>Sobre Nós</h2>
+            <p>Na CodificaTech, estamos comprometidos em transformar suas ideias em soluções digitais eficazes. Nossa equipe é composta por profissionais experientes que buscam inovação e excelência.</p>
+        </section>
+
+        <section id="contato"> 
+            <h2>Contato</h2>
+            <p>Entre em contato conosco para discutir suas necessidades de projeto. Preencha o formulário abaixo.</p>
+            <form id="contact-form" method="post" action="javascript:void(0);">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+                
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+    
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" required>
+                
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+                
+                <button class="botao">Enviar</button>
+                <div id="feedback"></div>
+            </form>
+        </section>
+             
         
         <section id="testemunhos">
             <h2>O que nossos clientes dizem</h2>
             <div id="testemunhos-container">
-                <p>"A CodificaTech transformou meu negócio!" - Cliente A</p>
-                <p>"Serviço excepcional e equipe incrível!" - Cliente B</p>
+                <div class="testemunho" data-aos="fade-up">
+                    <img src="img/cliente_1.jpg" alt="Cliente A">
+                    <p>"A CodificaTech transformou meu negócio!" - Cliente A</p>
+                </div>
+                <div class="testemunho" data-aos="fade-up">
+                    <img src="img/cliente_2.jpg" alt="Cliente B">
+                    <p>"Serviço excepcional e equipe incrível!" - Cliente B</p>
+                </div>
+                <div class="testemunho" data-aos="fade-up">
+                    <img src="img/cliente_3.jpg" alt="Cliente C">
+                    <p>"Excelente suporte e atendimento de primeira." - Cliente C</p>
+                </div>
+                <div class="testemunho" data-aos="fade-up">
+                    <img src="img/cliente_4.jpg" alt="Cliente D">
+                    <p>"O melhor serviço que já contratei!" - Cliente D</p>
+                </div>
+                <div class="testemunho" data-aos="fade-up">
+                    <img src="img/cliente_5.jpg" alt="Cliente E">
+                    <p>"Muito satisfeito com os resultados!" - Cliente E</p>
+                </div>
             </div>
         </section>
-        
 
     </main>
 
     <footer>
-        <p>&copy; 2024 CodificaTech. Todos os direitos reservados.</p>
+        <p>&copy; 2024 CodificaTech. Projeto fictício para fins educacionais.</p>
     </footer>
 
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+      emailjs.init({
+        publicKey: "ABa7JYqtsmSHpXndE",
+      });
+    })();
+    </script>
     <script src="js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
 </body>
 </html>

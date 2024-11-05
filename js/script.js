@@ -1,47 +1,57 @@
-// script.js
+// Inicializa o EmailJS com sua chave pública
+emailjs.init("ABa7JYqtsmSHpXndE"); // Certifique-se de que esse é o User ID correto
 
-// Função para validar o formulário
 document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Previne o envio padrão do formulário
+    event.preventDefault();
 
     // Coletar valores dos campos
-    const nome = document.getElementById('nome').value;
+    const name = document.getElementById('nome').value;
     const email = document.getElementById('email').value;
-    const mensagem = document.getElementById('mensagem').value;
-    const feedback = document.getElementById('feedback'); // Elemento para feedback visual
+    const phone = document.getElementById('telefone').value;
+    const message = document.getElementById('mensagem').value;
+    const feedbackElement = document.getElementById('feedback');
 
     // Limpa mensagens anteriores
-    feedback.textContent = '';
-    feedback.className = '';
+    feedbackElement.textContent = '';
+    feedbackElement.className = '';
 
     // Validação simples
-    if (nome && email && mensagem) {
+    if (name && email && message) {
         // Validação do formato do e-mail
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            feedback.textContent = 'Por favor, insira um e-mail válido.'; // Mensagem de erro para e-mail inválido
-            feedback.className = 'error'; // Classe CSS para estilo de erro
-            return; // Interrompe a execução da função
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            feedbackElement.textContent = 'Por favor, insira um e-mail válido.';
+            feedbackElement.className = 'error';
+            return;
         }
 
-        // Mensagem de sucesso
-        feedback.textContent = 'Mensagem enviada com sucesso!';
-        feedback.className = 'success'; // Classe CSS para estilo de sucesso
-
-        // Aqui você pode adicionar o código para enviar os dados para um servidor ou processá-los
-
-        // Resetar o formulário após o envio
-        document.getElementById('contact-form').reset();
+        // Enviar e-mail via EmailJS
+        emailjs.send("service_m0iw94c", "template_oth9ogu", {
+            nome: name,
+            email: email,
+            telefone: phone,
+            mensagem: message
+        })
+        .then(function(response) {
+            feedbackElement.textContent = 'Mensagem enviada com sucesso!';
+            feedbackElement.className = 'success';
+            document.getElementById('contact-form').reset();
+        })
+        .catch(function(error) {
+            feedbackElement.textContent = 'Erro ao enviar a mensagem. Tente novamente.';
+            feedbackElement.className = 'error';
+            console.error('Erro ao enviar:', error);
+        });        
     } else {
-        feedback.textContent = 'Por favor, preencha todos os campos.'; // Mensagem de erro
-        feedback.className = 'error'; // Classe CSS para estilo de erro
+        feedbackElement.textContent = 'Por favor, preencha todos os campos.';
+        feedbackElement.className = 'error';
     }
 });
 
-// Inicializa o Swiper
-document.addEventListener('DOMContentLoaded', function () {
+// Inicializa o Swiper para o carrossel
+document.addEventListener('DOMContentLoaded', function() {
     const swiper = new Swiper('.swiper-container', {
-        loop: true, // Habilitar o loop
+        loop: true,
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
@@ -50,5 +60,46 @@ document.addEventListener('DOMContentLoaded', function () {
             el: '.swiper-pagination',
             clickable: true,
         },
+    });
+});
+
+// Função para carregar os serviços (exemplo com fetch)
+async function loadServices() {
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+        const data = await response.json();
+
+        const servicesContainer = document.getElementById('servicos-container');
+        const fragment = document.createDocumentFragment();
+
+        data.slice(0, 3).forEach(service => {
+            const serviceCard = document.createElement('div');
+            serviceCard.className = 'servico-card';
+            serviceCard.innerHTML = `
+                <i class="fas fa-code"></i>
+                <h3>${service.title}</h3>
+                <p>${service.body}</p>
+            `;
+            
+            // Adiciona evento de clique ao card
+            serviceCard.addEventListener('click', () => {
+                alert(`Você clicou no serviço: ${service.title}`);
+            });
+            
+            fragment.appendChild(serviceCard);
+        });
+
+        servicesContainer.appendChild(fragment);
+    } catch (error) {
+        console.error('Erro ao carregar os serviços:', error);
+    }
+}
+
+// Inicializa animações com AOS
+document.addEventListener('DOMContentLoaded', function() {
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true
     });
 });
