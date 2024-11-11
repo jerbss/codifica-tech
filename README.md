@@ -1,4 +1,3 @@
-
 ![Logo](https://i.imgur.com/Zlnh5gn.png)
 
 # Desenvolvendo uma Landing Page Completa
@@ -7,10 +6,8 @@ Este projeto consiste na criação de uma landing page moderna e interativa, des
 
 **Objetivo**: Construir uma página que combine design atrativo com interatividade, utilizando:
 - **HTML, CSS, JavaScript** para estrutura e interatividade.
-- **Bibliotecas Externas** para sliders e animações.
+- **Bibliotecas externas** para sliders e animações.
 - **APIs** para exibir conteúdos dinâmicos em seções específicas, como "Serviços" e "Testemunhos".
-
-
 
 ## Funcionalidades
 
@@ -22,6 +19,7 @@ Esta landing page apresenta várias funcionalidades pensadas para melhorar a exp
 - **Animações ao Rolagem**: Utilização da biblioteca **AOS.js** para adicionar animações que revelam os depoimentos dos clientes à medida que o usuário rola a página.
 - **Design Responsivo**: A página é responsiva e adaptável a dispositivos móveis e desktops, utilizando media queries ou o framework **Bootstrap** ou **Tailwind CSS**.
 - **Tratamento de Erros**: Tratamento de mensagens de erro para garantir que problemas nas APIs ou validações sejam comunicados claramente ao usuário.
+
 ## Stack Utilizada
 
 Para o desenvolvimento desta landing page, foram utilizadas as seguintes tecnologias e bibliotecas:
@@ -35,6 +33,7 @@ Para o desenvolvimento desta landing page, foram utilizadas as seguintes tecnolo
 - **EmailJS**: Para integração do formulário de contato, permitindo o envio de mensagens diretamente para um e-mail.
 
 Essa combinação de tecnologias proporciona uma base sólida para criar uma experiência de usuário rica e interativa.
+
 ## Planejamento das Funcionalidades
 
 O desenvolvimento da landing page será realizado em etapas, com foco na implementação de funcionalidades interativas e responsivas. A seguir, estão descritas as funcionalidades planejadas e como serão implementadas:
@@ -64,6 +63,7 @@ O desenvolvimento da landing page será realizado em etapas, com foco na impleme
    - **Implementação**: Implementar tratamento de erros nas requisições à API e no envio do formulário, exibindo mensagens amigáveis como "Erro ao carregar os serviços" ou "Erro ao enviar a mensagem". Isso aumentará a usabilidade e a confiança do usuário na aplicação.
 
 Essa abordagem estruturada ajudará a garantir que todas as funcionalidades sejam implementadas de forma eficiente e organizada, resultando em uma landing page funcional e atraente.
+
 ## Roadmap
 
 O desenvolvimento da landing page será realizado seguindo as etapas abaixo:
@@ -86,6 +86,7 @@ O desenvolvimento da landing page será realizado seguindo as etapas abaixo:
 
 - **Finalização e Documentação**:
   - Preparação do README e documentação do projeto.
+
 ## Referência
 
 As seguintes referências foram utilizadas como base para o desenvolvimento deste projeto:
@@ -97,6 +98,7 @@ As seguintes referências foram utilizadas como base para o desenvolvimento dest
 - **AOS.js**: [Documentação do AOS.js](https://michalsnik.github.io/aos/)
 - **EmailJS**: [Documentação do EmailJS](https://www.emailjs.com/docs/)
 - **Bootstrap**: [Documentação do Bootstrap](https://getbootstrap.com/docs/)
+
 ## Rodando Localmente
 
 Para executar a landing page localmente, siga os passos abaixo:
