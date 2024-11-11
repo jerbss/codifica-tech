@@ -1,3 +1,43 @@
+/* Responsividade para seções */
+@media (max-width: 768px) {
+    .servicos-container {
+        flex-direction: column; /* Empilha os cards em telas pequenas */
+        align-items: center; /* Centraliza os itens */
+    }
+
+    .swiper-container {
+        height: 300px; /* Ajusta a altura do swiper em telas menores */
+    }
+
+    .servico-card {
+        width: 100%; /* Garante que os cards ocupem 100% da largura disponível */
+        margin: 10px 0; /* Ajusta o espaçamento entre os cards */
+    }
+}
+
+/* Para dispositivos menores como smartphones */
+@media (max-width: 480px) {
+    .swiper-container {
+        height: 250px; /* Ajusta ainda mais para telas muito pequenas */
+    }
+
+    .footer-container {
+        padding: 0 10px;
+    }
+
+    #footer {
+        padding: 10px;
+    }
+
+    .social-link {
+        font-size: 16px;
+    }
+
+    .botao {
+        width: 100%; /* Botão de contato ocupa toda a largura */
+    }
+}
+
 /* Reset básico para margens e padding */
 * {
     margin: 0;
@@ -94,16 +134,78 @@ h1 {
 }
 
 
-/* Estilização do rodapé */
-footer {
-    text-align: center; /* Centraliza o texto do rodapé */
-    padding: 10px 0; /* Espaçamento interno */
-    background: #333; /* Cor de fundo do rodapé */
-    color: #fff; /* Cor do texto do rodapé */
-    position: relative; /* Para o rodapé ficar no final da página */
-    bottom: 0;
-    width: 100%; /* Largura total */
+#footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9em;
 }
+
+.footer-link {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #3498db;
+}
+
+.social-links {
+    margin-bottom: 10px;
+}
+
+.social-link {
+    color: white;
+    font-size: 24px;
+    margin: 0 10px;
+}
+
+.social-link:hover {
+    color: #3498db;
+}
+
+
+.social-links {
+    margin-bottom: 20px;
+}
+
+.social-link {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.social-link:hover {
+    color: #3498db; /* Cor de destaque ao passar o mouse */
+}
+
+.footer-info {
+    margin-bottom: 15px;
+}
+
+.footer-link {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    color: #3498db;
+}
+
+.footer-copyright {
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.fab {
+    font-size: 20px; /* Tamanho dos ícones das redes sociais */
+}
+
 
 /* Estilização das seções */
 section {
@@ -179,11 +281,28 @@ input, textarea {
 }
 
 #slider {
-    width: 100%; /* Largura total */
-    max-width: 100vw; /* Limita a largura máxima à largura da tela */
-    overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse os limites */
-    position: relative; /* Garante que o slider mantenha o conteúdo dentro dos limites */
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+    position: relative;
 }
+
+.swiper-container {
+    width: 100%;
+    height: 500px; /* Ajuste a altura conforme necessário */
+}
+
+.swiper-slide img {
+    width: 100%; 
+    height: auto; /* Mantém a proporção das imagens */
+    object-fit: cover; /* Preenche o espaço do slide */
+}
+
+.swiper-button-next, .swiper-button-prev {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
 
 .slide img {
   width: 100%;
@@ -252,23 +371,42 @@ input, textarea {
     display: flex;
     flex-direction: column;
     gap: 1.5em;
-    align-items: center; /* Centraliza os depoimentos no container */
-    text-align: center; /* Centraliza o texto dentro dos depoimentos */
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1s forwards; /* Efeito de fade-in para os depoimentos */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .testemunho {
     display: flex;
-    flex-direction: column; /* Coloca a imagem acima do texto */
-    align-items: center; /* Centraliza a imagem e o texto */
+    flex-direction: column;
+    align-items: center;
     gap: 0.5em;
+    max-width: 300px;
 }
 
 .testemunho img {
-    width: 250px; /* Ajuste o tamanho conforme necessário */
-    height: 250px;
+    width: 100%;
+    max-width: 200px;
+    height: 200px;
     border-radius: 50%;
     object-fit: cover;
 }
+
+.testemunho p {
+    font-style: italic; /* Estilo para o texto dos depoimentos */
+    color: #555;
+}
+
 
 .success {
     color: green;

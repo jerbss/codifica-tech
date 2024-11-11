@@ -16,36 +16,52 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     feedbackElement.className = '';
 
     // Validação simples
-    if (name && email && message) {
-        // Validação do formato do e-mail
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(email)) {
-            feedbackElement.textContent = 'Por favor, insira um e-mail válido.';
-            feedbackElement.className = 'error';
-            return;
-        }
-
-        // Enviar e-mail via EmailJS
-        emailjs.send("service_m0iw94c", "template_oth9ogu", {
-            nome: name,
-            email: email,
-            telefone: phone,
-            mensagem: message
-        })
-        .then(function(response) {
-            feedbackElement.textContent = 'Mensagem enviada com sucesso!';
-            feedbackElement.className = 'success';
-            document.getElementById('contact-form').reset();
-        })
-        .catch(function(error) {
-            feedbackElement.textContent = 'Erro ao enviar a mensagem. Tente novamente.';
-            feedbackElement.className = 'error';
-            console.error('Erro ao enviar:', error);
-        });        
-    } else {
-        feedbackElement.textContent = 'Por favor, preencha todos os campos.';
+    if (!name || !email || !message) {
+        feedbackElement.textContent = 'Por favor, preencha todos os campos obrigatórios.';
         feedbackElement.className = 'error';
+        return;
     }
+
+    // Validação do formato do e-mail
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        feedbackElement.textContent = 'Por favor, insira um e-mail válido.';
+        feedbackElement.className = 'error';
+        return;
+    }
+
+    // Validação do número de telefone (usando uma expressão regular simples)
+    const phonePattern = /^\+?\d{10,15}$/;
+    if (phone && !phonePattern.test(phone)) {
+        feedbackElement.textContent = 'Por favor, insira um número de telefone válido (apenas números).';
+        feedbackElement.className = 'error';
+        return;
+    }
+
+    // Validação da mensagem
+    if (message.trim().length < 10) {  // Garantir que a mensagem tenha pelo menos 10 caracteres
+        feedbackElement.textContent = 'Por favor, insira uma mensagem com pelo menos 10 caracteres.';
+        feedbackElement.className = 'error';
+        return;
+    }
+
+    // Enviar e-mail via EmailJS
+    emailjs.send("service_m0iw94c", "template_oth9ogu", {
+        nome: name,
+        email: email,
+        telefone: phone,
+        mensagem: message
+    })
+    .then(function(response) {
+        feedbackElement.textContent = 'Mensagem enviada com sucesso!';
+        feedbackElement.className = 'success';
+        document.getElementById('contact-form').reset();
+    })
+    .catch(function(error) {
+        feedbackElement.textContent = 'Erro ao enviar a mensagem. Tente novamente.';
+        feedbackElement.className = 'error';
+        console.error('Erro ao enviar:', error);
+    });        
 });
 
 // Inicializa o Swiper para o carrossel
